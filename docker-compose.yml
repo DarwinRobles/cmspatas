@@ -1,27 +1,4 @@
-
 services:
-  strapi:
-    build: .
-    container_name: cmspatas_strapi
-    restart: always
-    env_file:
-      - .env
-    # ports:
-    #   - "127.0.0.1:1337:1337"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.strapi.rule=Host(`cms.metidasdepata.com`)"
-      - "traefik.http.routers.strapi.entrypoints=websecure"
-      - "traefik.http.routers.strapi.tls.certresolver=myresolver"
-      - "traefik.http.services.strapi.loadbalancer.server.port=1337"
-    expose:
-      - "1337"
-
-    depends_on:
-      - db
-    volumes:
-      - ./public/uploads:/app/public/uploads
-
   db:
     image: postgres:16-alpine
     container_name: cmspatas_db
@@ -30,6 +7,25 @@ services:
       - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  strapi:
+    build: .
+    container_name: cmspatas_strapi
+    restart: always
+    env_file:
+      - .env
+    expose:
+      - "1337"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.strapi.rule=Host(`cms.metidasdepata.com`)"
+      - "traefik.http.routers.strapi.entrypoints=websecure"
+      - "traefik.http.routers.strapi.tls.certresolver=myresolver"
+      - "traefik.http.services.strapi.loadbalancer.server.port=1337"
+    depends_on:
+      - db
+    volumes:
+      - ./public/uploads:/app/public/uploads
 
   traefik:
     image: traefik:v2.9
