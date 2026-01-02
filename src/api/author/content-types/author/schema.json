@@ -13,22 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "avatar": {
       "type": "media",
       "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "email": {
-      "type": "string"
-    },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "author"
+    "description": {
+      "type": "string",
+      "required": true
     }
   }
 }

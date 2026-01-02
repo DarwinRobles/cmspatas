@@ -1,0 +1,119 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml",
+        "maxLengthWords": 150
+      },
+      "required": true
+    },
+    "action": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": true,
+      "required": true
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "gallerydescription": {
+      "type": "component",
+      "component": "shared.section",
+      "repeatable": false
+    },
+    "titlecards": {
+      "type": "component",
+      "component": "shared.section",
+      "repeatable": false
+    },
+    "cards": {
+      "type": "component",
+      "component": "shared.card",
+      "repeatable": true
+    },
+    "message": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml",
+        "maxLengthWords": 80
+      }
+    },
+    "eventstitle": {
+      "type": "component",
+      "component": "shared.section",
+      "repeatable": false
+    },
+    "eventscard": {
+      "type": "component",
+      "component": "shared.card",
+      "repeatable": true
+    },
+    "titlecoments": {
+      "type": "component",
+      "component": "shared.section",
+      "repeatable": false
+    },
+    "coments": {
+      "type": "component",
+      "component": "shared.testimonial",
+      "repeatable": true
+    },
+    "formtitle": {
+      "type": "component",
+      "component": "shared.section",
+      "repeatable": false
+    },
+    "personform": {
+      "type": "component",
+      "component": "shared.input",
+      "repeatable": true
+    },
+    "businessform": {
+      "type": "component",
+      "component": "shared.input",
+      "repeatable": true
+    },
+    "blog": {
+      "type": "component",
+      "component": "shared.section",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "collectionName": "components_shared_cards",
+  "info": {
+    "displayName": "Card"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml",
+        "maxLengthWords": 200
+      }
+    },
+    "showimage": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "showimage"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "showButton": {
+      "type": "boolean"
+    },
+    "cta": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "showButton"
+            },
+            true
+          ]
+        }
+      },
+      "component": "shared.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

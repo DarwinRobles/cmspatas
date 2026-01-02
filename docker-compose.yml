@@ -1,0 +1,26 @@
+
+services:
+  strapi:
+    build: .
+    container_name: cmspatas_strapi
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:1337:1337"
+    depends_on:
+      - db
+    volumes:
+      - ./public/uploads:/app/public/uploads
+
+  db:
+    image: postgres:16-alpine
+    container_name: cmspatas_db
+    restart: always
+    environment:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

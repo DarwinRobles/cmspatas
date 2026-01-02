@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_shared_testimonials",
+  "info": {
+    "displayName": "Testimonial"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "coment": {
+      "type": "text"
+    },
+    "pisition": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "photo"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

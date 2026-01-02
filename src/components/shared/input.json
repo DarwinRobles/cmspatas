@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_inputs",
+  "info": {
+    "displayName": "Input"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "text",
+        "email",
+        "textarea"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
