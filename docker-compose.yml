@@ -1,5 +1,6 @@
 services:
   strapi:
+    build: .
     image: cmspatas-strapi
     container_name: cmspatas_strapi
     expose:
