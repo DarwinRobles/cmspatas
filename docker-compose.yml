@@ -1,29 +1,12 @@
 services:
-  db:
-    image: postgres:16-alpine
-    container_name: cmspatas_db
-    restart: always
-    env_file:
-      - .env
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
   strapi:
-    build: .
+    image: cmspatas-strapi
     container_name: cmspatas_strapi
+    expose:
+      - "1337"
     restart: always
-    env_file:
-      - .env
-    depends_on:
-      - db
-    volumes:
-      - ./public/uploads:/app/public/uploads
-    environment:
-      DATABASE_HOST: db
-      DATABASE_PORT: 5432
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    networks:
+      - cmspatas_net
 
   nginx:
     image: nginx:latest
@@ -37,7 +20,9 @@ services:
       - ./certbot/www:/var/www/certbot
       - certbot-etc:/etc/letsencrypt
     depends_on:
-      - strapit
+      - strapi
+    networks:
+      - cmspatas_net
 
   certbot:
     image: certbot/certbot
@@ -47,9 +32,17 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
     entrypoint: >
-      /bin/sh -c "trap exit TERM; while :; do sleep 12h & wait $${!}; certbot renew; done"
+      /bin/sh -c "trap exit TERM;
+      while :; do
+        certbot renew;
+        sleep 12h;
+      done"
+    networks:
+      - cmspatas_net
 
 volumes:
-  pgdata:
   certbot-etc:
   certbot-var:
+
+networks:
+  cmspatas_net:
