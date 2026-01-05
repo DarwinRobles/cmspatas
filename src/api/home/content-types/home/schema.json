@@ -57,6 +57,9 @@
       "component": "shared.section",
       "repeatable": false
     },
+    "gallerymessage": {
+      "type": "text"
+    },
     "titlecards": {
       "type": "component",
       "component": "shared.section",

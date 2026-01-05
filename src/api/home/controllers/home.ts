@@ -20,7 +20,7 @@ async function getHomeSection(strapi: any, ctx: any) {
 
 async function getAboutSection(strapi: any, ctx: any) {
   return await strapi.db.query(UID).findOne({
-    select: ["documentId"],
+    select: ["documentId", "gallerymessage"],
         populate: {
             gallery: { fields: ["url"], select: ["url"]},
             gallerydescription: { fields: ["content"], select: ["content"]},

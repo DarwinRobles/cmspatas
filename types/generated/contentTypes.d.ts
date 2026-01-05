@@ -562,6 +562,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     gallery: Schema.Attribute.Media<'images' | 'videos', true> &
       Schema.Attribute.Required;
     gallerydescription: Schema.Attribute.Component<'shared.section', false>;
+    gallerymessage: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
