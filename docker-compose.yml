@@ -2,15 +2,11 @@ services:
   strapi:
     image: xicota-cmspatas-kq4lpn:latest
     restart: always
-
     ports:
       - "1337:1337"
-
     environment:
       NODE_ENV: production
-
     volumes:
-      - strapi_uploads:/app/public/uploads
-
-volumes:
-  strapi_uploads:
+      - type: bind
+        source: /srv/strapi/uploads
+        target: /app/public/uploads
