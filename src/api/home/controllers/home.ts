@@ -93,6 +93,20 @@ async function getBlogsSection(strapi: any, ctx: any) {
 }
 
 
+async function getTeamSection(strapi: any, ctx: any) {
+  return await strapi.db.query(UID).findOne({
+    select: ["documentId"],
+        populate: {
+          teamsection: { fields: ["content"], select: ["content"]},
+          team: { fields: ["name", "pisition", "photo", "coment"], select: ["name", "pisition", "photo", "coment"],
+            populate:{
+                image: { fields: ["url"], select: ["url"]},
+            },
+          },
+        }
+  });
+}
+
 
 
 export default factories.createCoreController(UID, ({ strapi }) => ({
@@ -123,6 +137,10 @@ export default factories.createCoreController(UID, ({ strapi }) => ({
 
   async blogs(ctx) {
     ctx.body = await getBlogsSection(strapi, "blogs");
+  },
+
+  async team(ctx) {
+    ctx.body = await getTeamSection(strapi, "team");
   },
 
 }));

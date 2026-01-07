@@ -15,5 +15,6 @@ export default {
     { method: "GET", path: "/home/testimonials", handler: "home.testimonials", },
     { method: "GET", path: "/home/forms", handler: "home.forms", },
     { method: "GET", path: "/home/blogs", handler: "home.blogs", },
+    { method: "GET", path: "/home/team", handler: "home.team", },
   ],
 };

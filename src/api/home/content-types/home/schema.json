@@ -117,6 +117,16 @@
       "type": "component",
       "component": "shared.section",
       "repeatable": false
+    },
+    "teamsection": {
+      "type": "component",
+      "component": "shared.section",
+      "repeatable": false
+    },
+    "team": {
+      "type": "component",
+      "component": "shared.testimonial",
+      "repeatable": true
     }
   }
 }

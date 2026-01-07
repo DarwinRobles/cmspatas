@@ -577,6 +577,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       >;
     personform: Schema.Attribute.Component<'shared.input', true>;
     publishedAt: Schema.Attribute.DateTime;
+    team: Schema.Attribute.Component<'shared.testimonial', true>;
+    teamsection: Schema.Attribute.Component<'shared.section', false>;
     titlecards: Schema.Attribute.Component<'shared.section', false>;
     titlecoments: Schema.Attribute.Component<'shared.section', false>;
     updatedAt: Schema.Attribute.DateTime;
